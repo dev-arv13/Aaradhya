@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light only" />
+<meta name="supported-color-schemes" content="light" />
+<meta name="theme-color" content="#ecdcb8" />
+<title>The Colosseum — A Heritage Project by Aaradhya Sharma</title>
+<meta name="description" content="A Class 8 heritage project on the Colosseum by Aaradhya Sharma, Our Lady of the Snows High School." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --travertine: #f3ead8;
+    --travertine-2: #ece1c8;
+    --parchment: #faf4e6;
+    --terracotta: #b65a3c;
+    --terracotta-d: #8a3f28;
+    --tyrian: #7a1f2b;
+    --gold: #b48a3a;
+    --gold-soft: #d6b367;
+    --ink: #2a2520;
+    --ink-soft: #4a4239;
+    --ink-mute: #7a6f60;
+    --rule: rgba(180,138,58,.45);
+    --rule-soft: rgba(42,37,32,.12);
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono:  "JetBrains Mono", ui-monospace, Menlo, monospace;
+    --maxw: 1240px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  html, body{ margin:0; padding:0; }
+  body{
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--travertine);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  body::before{
+    content:"";
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 1;
+    background-image:
+      radial-gradient(rgba(74,66,57,.045) 1px, transparent 1.4px),
+      radial-gradient(rgba(74,66,57,.025) 1px, transparent 1.6px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode: multiply; opacity:.85;
+  }
+  ::selection{ background: var(--gold-soft); color: var(--ink); }
+  img{ max-width:100%; display:block; }
+  a{ color: var(--terracotta-d); text-decoration: none; }
+  a:hover{ color: var(--tyrian); }
+
+  .eyebrow{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+  }
+  h1, h2, h3{
+    font-family: var(--serif); font-weight: 500;
+    color: var(--ink); letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+  h1{ font-size: clamp(48px, 8.4vw, 132px); line-height:.96; font-weight:500; margin:0; }
+  h2{ font-size: clamp(34px, 4.6vw, 60px); line-height: 1.05; margin: 0 0 .35em; }
+  h3{ font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; font-weight: 600; margin: 0 0 .35em; }
+  p{ font-size: 17px; color: var(--ink-soft); margin: 0 0 1em; }
+  p.lede{ font-size: clamp(19px, 1.5vw, 22px); line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+  section{ position: relative; z-index: 2; }
+  .section{ padding: clamp(80px, 10vw, 140px) 0; }
+  .section + .section{ border-top: 1px solid var(--rule-soft); }
+
+  .divider{ display:flex; align-items:center; gap:14px; margin:18px 0 28px; color:var(--gold); }
+  .divider .line{ flex:1; height:1px; background: var(--rule); }
+  .divider svg{ width:22px; height:12px; }
+
+  /* Nav */
+  .nav{
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    background: rgba(243,234,216,.78);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s, background .2s;
+  }
+  .nav.scrolled{ border-bottom-color: var(--rule-soft); background: rgba(243,234,216,.92); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .mark{
+    width:28px; height:28px; border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:grid; place-items:center; color: var(--gold);
+  }
+  .brand .name{ font-family: var(--serif); font-size: 19px; font-weight: 600; }
+  .brand .name em{ font-style: italic; color: var(--terracotta-d); font-weight: 500; }
+  .nav-links{ display:flex; gap: 28px; }
+  .nav-links a{
+    font-size: 13px; letter-spacing: .04em;
+    color: var(--ink-soft); font-weight: 500; position: relative;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px; height:1px;
+    background: var(--terracotta);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a:hover::after{ transform: scaleX(1); }
+  @media (max-width: 720px){ .nav-links{ display:none; } }
+
+  /* Mobile hero — simplified, breathable */
+  @media (max-width: 720px){
+    .wrap{ padding: 0 22px; }
+    .nav-inner{ padding: 14px 0; }
+    .brand .name{ font-size: 13px; }
+
+    h1{ font-size: 44px !important; line-height: 1.04 !important; }
+    .hero{
+      min-height: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .hero-grid{
+      min-height: auto !important;
+      padding: 92px 0 24px !important;   /* nav clearance */
+      align-items: start !important;
+      order: 1;
+    }
+    .hero-silhouette{ order: 2; }
+    .hero-bottom{ order: 3; }
+    .hero-sun{ order: 0; }
+    /* Hide upper-right A.D. stamp on phones — competes with nav */
+    .hero-stamp{ display: none; }
+
+    .hero h1 .ren{ display: block; }
+    .hero-sub{
+      font-size: 16px !important;
+      line-height: 1.5;
+      margin-top: 16px !important;
+      max-width: 100%;
+    }
+    .hero-meta{
+      font-size: 10px !important;
+      letter-spacing: .16em !important;
+      line-height: 1.9 !important;
+      margin-top: 14px !important;
+      color: #f3ead8 !important;
+      font-weight: 500 !important;
+    }
+    .hero-meta span + span::before{ margin: 0 7px; color: #d4a85a !important; }
+    .hero-bottom{
+      position: static !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 18px 22px 32px !important;
+      gap: 0 !important;
+    }
+    .scroll-ind{ display: none !important; }
+    .hero-bottom .hero-tag:last-child{ display: none !important; }
+    .hero-tag{
+      max-width: 100% !important;
+      font-size: 10px !important;
+      letter-spacing: .22em !important;
+      color: #c9bfa8 !important;
+    }
+    .hero-tag b{ color: #f3ead8 !important; }
+
+    /* Silhouette: pull it out of the absolute layer and make it a clean
+       footer illustration sized to the viewport — no cropping, no overlap. */
+    .hero-silhouette{
+      position: relative !important;
+      left: auto !important; top: auto !important;
+      transform: none !important;
+      width: 100% !important;
+      margin: 36px 0 0 !important;
+      opacity: .85 !important;
+      padding: 0 16px;
+    }
+    .hero-silhouette svg{
+      max-height: 180px;
+    }
+    .hero-sun{
+      width: 60vw;
+      top: 36%;
+      opacity: .7;
+    }
+
+    /* Hero bottom: one short line under the silhouette, no scroll arrow,
+       no duplicate "Begin the journey" block. */
+    .hero-bottom{
+      position: static;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 18px 22px 32px;
+      gap: 0;
+    }
+    .scroll-ind{ display: none; }
+    .hero-bottom .hero-tag:last-child{ display: none; }
+    .hero-tag{
+      max-width: 100%;
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+  }
+  @media (max-width: 380px){
+    h1{ font-size: 38px !important; }
+    .hero-sub{ font-size: 15px !important; }
+  }
+
+  /* Hero */
+  .hero{
+    position: relative;
+    min-height: clamp(640px, 92vh, 920px);
+    overflow: hidden;
+    background:
+      radial-gradient(1200px 600px at 75% 20%, rgba(212,168,90,.4), transparent 60%),
+      radial-gradient(900px 600px at 10% 90%, rgba(122,31,43,.18), transparent 60%),
+      linear-gradient(180deg, #ecdcb8 0%, #e3c896 55%, #c89561 100%);
+    color: var(--ink);
+    isolation: isolate;
+  }
+  .hero-grid{
+    position: relative; z-index: 3;
+    display: grid; grid-template-columns: 1fr; align-items: end;
+    min-height: clamp(640px, 92vh, 920px);
+    padding: 90px 0 110px;
+  }
+  .hero-stamp{
+    position: absolute; top: 28px; right: 32px; z-index: 4;
+    text-align: right; color: var(--ink-soft);
+  }
+  .hero-stamp .lat{ font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--terracotta-d); }
+  .hero-stamp .roman{ font-family: var(--mono); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-mute); }
+
+  .hero h1{ color: var(--ink); font-style: italic; font-weight: 500; }
+  .hero h1 .amp{ font-style: italic; color: var(--tyrian); }
+  .hero h1 .ren{ font-style: italic; color: var(--terracotta-d); display: block; }
+  .hero-sub{
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(20px, 1.8vw, 26px);
+    color: var(--ink-soft);
+    margin: 22px 0 0; max-width: 640px;
+  }
+  .hero-meta{
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: #2a2520;
+    font-weight: 600;
+  }
+  .hero-meta span + span::before{ content: "•"; margin: 0 12px; color: var(--tyrian); }
+
+  .hero-silhouette{
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -42%);
+    width: min(1500px, 130%);
+    z-index: 1; pointer-events: none; opacity: .55;
+    will-change: transform;
+  }
+  .hero-silhouette svg{ width: 100%; height: auto; display:block; }
+  .hero-sun{
+    position: absolute; left: 50%; top: 38%;
+    transform: translate(-50%, -50%);
+    width: clamp(320px, 38vw, 560px);
+    aspect-ratio: 1/1; z-index: 0;
+    background: radial-gradient(circle at 50% 50%, #f0d49a 0%, rgba(240,212,154,0) 60%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .hero-sun::after{
+    content:""; position: absolute; inset: 18%;
+    border-radius: 50%; border: 1px solid rgba(122,31,43,.28);
+  }
+
+  .hero-bottom{
+    position: absolute; left:0; right:0; bottom: 32px; z-index: 4;
+    display: flex; justify-content: space-between; align-items: end;
+    padding: 0 32px; gap: 24px;
+  }
+  .hero-tag{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--ink-mute); max-width: 280px;
+  }
+  .hero-tag b{ color: var(--ink); font-weight: 600; }
+  .scroll-ind{
+    display: inline-flex; flex-direction: column; align-items:center; gap:10px;
+    color: var(--ink-soft);
+    font-family: var(--mono); font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+  }
+  .scroll-ind .bar{
+    width: 1px; height: 56px; background: var(--ink-soft);
+    position: relative; overflow: hidden;
+  }
+  .scroll-ind .bar::after{
+    content:""; position:absolute; left:0; right:0; top:-100%;
+    height: 50%; background: var(--terracotta-d);
+    animation: scrollDrop 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollDrop{
+    0%{ top:-50%; } 60%{ top:100%; } 100%{ top:100%; }
+  }
+
+  /* Section heads */
+  .section-head{ display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; margin-bottom: 56px;}
+  .section-head .label{ border-top: 1px solid var(--rule); padding-top: 14px; }
+  .section-head .label .num{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+  }
+  .section-head .label .name{
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; color: var(--ink-mute); margin-top: 6px;
+  }
+  @media (max-width: 800px){ .section-head{ grid-template-columns: 1fr; gap: 18px; } }
+
+  /* Stats */
+  .stats{
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    margin-top: 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat{
+    padding: 32px 24px;
+    border-right: 1px solid var(--rule-soft);
+    display:flex; flex-direction: column; gap: 14px;
+    transition: background .3s ease;
+  }
+  .stat:last-child{ border-right: none; }
+  .stat:hover{ background: rgba(180,138,58,.06); }
+  .stat .icon{ width: 44px; height: 44px; color: var(--terracotta-d); }
+  .stat .num{
+    font-family: var(--serif);
+    font-size: clamp(28px, 2.6vw, 42px);
+    font-weight: 600; color: var(--ink);
+    line-height: 1; letter-spacing: -0.01em;
+  }
+  .stat .num small{
+    font-size: .55em; font-weight: 500; color: var(--ink-mute);
+    margin-left: 4px; letter-spacing: 0;
+  }
+  .stat .lbl{
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  @media (max-width: 1000px){
+    .stats{ grid-template-columns: repeat(2, 1fr); }
+    .stat{ border-bottom: 1px solid var(--rule-soft); }
+    .stat:nth-child(2n){ border-right: none; }
+  }
+  @media (max-width: 520px){
+    .stats{ grid-template-columns: 1fr; }
+    .stat{ border-right: none !important; }
+  }
+
+  .drop-cap::first-letter{
+    font-family: var(--serif); font-size: 4.6em;
+    line-height: .85; float: left;
+    margin: 6px 12px -6px 0; color: var(--tyrian); font-weight: 600;
+  }
+
+  /* Two col purpose */
+  .two-col{
+    display: grid; grid-template-columns: 1.15fr 1fr;
+    gap: 80px; align-items: start;
+  }
+  @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr; gap: 48px; } }
+  .icon-cards{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .icon-card{
+    background: var(--parchment);
+    border: 1px solid var(--rule-soft);
+    padding: 26px 22px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position: relative; overflow: hidden;
+  }
+  .icon-card::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background: linear-gradient(180deg, transparent 70%, rgba(180,138,58,.08));
+  }
+  .icon-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgba(42,37,32,.4);
+    border-color: var(--gold-soft);
+  }
+  .icon-card .icon{ width: 40px; height: 40px; color: var(--terracotta-d); margin-bottom: 14px; }
+  .icon-card h4{ font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 0 0 4px; color: var(--ink); }
+  .icon-card .roman-num{
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .3em; color: var(--gold); text-transform: uppercase;
+  }
+
+  /* Timeline */
+  .timeline{
+    position: relative;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .timeline::before{
+    content:""; position: absolute;
+    left: 8%; right: 8%; top: 38px;
+    height: 1px; background: var(--rule);
+  }
+  .tl-item{ position: relative; padding-top: 76px; list-style: none; }
+  .tl-item .dot{
+    position: absolute; top: 30px; left: 0;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--travertine);
+    border: 1.5px solid var(--terracotta-d);
+    box-shadow: 0 0 0 4px var(--travertine);
+  }
+  .tl-item .dot::after{
+    content:""; position: absolute; inset: 3px;
+    border-radius: 50%; background: var(--terracotta-d);
+    transform: scale(0); transition: transform .4s ease;
+  }
+  .tl-item.in-view .dot::after{ transform: scale(1); }
+  .tl-item .yr{
+    font-family: var(--serif);
+    font-size: clamp(28px, 2.4vw, 40px);
+    font-weight: 600; line-height: 1;
+    color: var(--tyrian); margin-bottom: 8px;
+  }
+  .tl-item h4{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 16px; margin: 0 0 8px; color: var(--ink);
+  }
+  .tl-item p{ font-size: 14.5px; margin: 0; color: var(--ink-soft); }
+  @media (max-width: 900px){
+    .timeline{ grid-template-columns: 1fr 1fr; }
+    .timeline::before{ display: none; }
+  }
+  @media (max-width: 540px){ .timeline{ grid-template-columns: 1fr; } }
+
+  .tl-coda{
+    margin-top: 56px; padding: 28px 32px;
+    border-left: 2px solid var(--gold);
+    background: rgba(180,138,58,.05);
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(18px, 1.5vw, 22px);
+    color: var(--ink); line-height: 1.55;
+    max-width: 880px;
+  }
+
+  /* Model section */
+  .model-section{
+    background: linear-gradient(180deg, var(--travertine) 0%, var(--travertine-2) 100%);
+    position: relative;
+  }
+  .materials{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+    margin-bottom: 96px;
+  }
+  .material{
+    background: var(--parchment);
+    padding: 24px 22px;
+    display: flex; align-items: center; gap: 16px;
+    transition: background .25s;
+  }
+  .material:hover{ background: #fffaef; }
+  .material .icon{ flex: 0 0 36px; width: 36px; height: 36px; color: var(--terracotta-d); }
+  .material .label{
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 500;
+    color: var(--ink); line-height: 1.25;
+  }
+  .material .meta{
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-mute); margin-top: 3px;
+  }
+  @media (max-width: 760px){ .materials{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px){ .materials{ grid-template-columns: 1fr; } }
+
+  .gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .gcard{
+    position: relative;
+    background: var(--parchment);
+    border: 1px solid var(--rule-soft);
+    overflow: hidden;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+  }
+  .gcard:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -28px rgba(42,37,32,.45);
+  }
+  .gcard .photo{ aspect-ratio: 4/3; overflow: hidden; background: #ddd; position: relative; }
+  .gcard .photo img{
+    width:100%; height:100%; object-fit: cover;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .gcard:hover .photo img{ transform: scale(1.04); }
+  .gcard .photo::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, transparent 60%, rgba(42,37,32,.18));
+    pointer-events: none;
+  }
+  .gcard .step-num{
+    position: absolute; top: 18px; left: 18px; z-index: 2;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--travertine); color: var(--tyrian);
+    display:grid; place-items:center;
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 6px 18px rgba(42,37,32,.18);
+  }
+  .gcard .body{ padding: 22px 24px 26px; }
+  .gcard .body .step{
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .gcard .body h4{ font-family: var(--serif); font-weight: 600; font-size: 24px; margin: 0 0 8px; color: var(--ink); }
+  .gcard .body p{ font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+  @media (max-width: 800px){ .gallery{ grid-template-columns: 1fr; } }
+  .gallery .gcard:nth-child(even){ transform: translateY(40px); }
+  .gallery .gcard:nth-child(even):hover{ transform: translateY(34px); }
+  @media (max-width: 800px){
+    .gallery .gcard:nth-child(even){ transform: none; }
+    .gallery .gcard:nth-child(even):hover{ transform: translateY(-6px); }
+  }
+
+  /* Video */
+  .video-section{ background: var(--ink); color: #f3ead8; }
+  .video-section .eyebrow{ color: rgba(243,234,216,.7); }
+  .video-section h2{ color: #f3ead8; }
+  .video-section p{ color: rgba(243,234,216,.78); }
+  .video-section .section-head .label{ border-top-color: rgba(180,138,58,.5); }
+  .video-section .section-head .label .name{ color: rgba(243,234,216,.65); }
+  .video-section .divider .line{ background: rgba(180,138,58,.5); }
+
+  .video-frame{
+    position: relative; aspect-ratio: 9/16; width: 100%;
+    max-width: 420px; margin: 12px auto 0;
+    background: linear-gradient(135deg, #5a3220 0%, #2a1a12 60%, #1a1109 100%);
+    border: 1px solid rgba(212,168,90,.4);
+    cursor: pointer; overflow: hidden;
+    display: block; text-decoration: none;
+  }
+  .video-frame .video-thumb{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit: cover; object-position: center;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .35s ease;
+  }
+  .video-frame:hover .video-thumb{ transform: scale(1.04); filter: brightness(.92); }
+  .video-frame-overlay{
+    position:absolute; inset:0; pointer-events:none;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.0) 55%, rgba(0,0,0,.55) 100%),
+      radial-gradient(circle at 50% 45%, rgba(0,0,0,.0) 50%, rgba(0,0,0,.35) 100%);
+  }
+  .video-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .video-frame .play{
+    position:absolute; left:50%; top:50%;
+    transform: translate(-50%, -50%);
+    width: 96px; height: 96px;
+    border-radius: 50%; background: var(--tyrian);
+    display:grid; place-items:center;
+    color: #f3ead8;
+    box-shadow: 0 0 0 0 rgba(122,31,43,.55);
+    transition: transform .3s ease;
+    animation: playPulse 2.4s ease-in-out infinite;
+    z-index: 2;
+  }
+  .video-frame:hover .play{ transform: translate(-50%, -50%) scale(1.08); }
+  @keyframes playPulse{
+    0%{ box-shadow: 0 0 0 0 rgba(122,31,43,.55); }
+    100%{ box-shadow: 0 0 0 36px rgba(122,31,43,0); }
+  }
+  .video-frame .duration{
+    position: absolute; right: 18px; bottom: 18px;
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: .22em; color: rgba(243,234,216,.85);
+    z-index: 2;
+  }
+  .video-frame.playing .play, .video-frame.playing .duration, .video-frame.playing .video-frame-overlay{ display:none; }
+
+  /* AI grid */
+  .ai-grid{
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--rule-soft);
+    margin-top: 32px;
+  }
+  .ai-card{
+    padding: 36px 32px;
+    border-right: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+    background: var(--parchment);
+    transition: background .3s, transform .3s;
+    position: relative;
+  }
+  .ai-card:nth-child(2n){ border-right: none; }
+  .ai-card:nth-last-child(-n+2){ border-bottom: none; }
+  .ai-card:hover{ background: #fffaef; }
+  .ai-card .top{ display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+  .ai-card .icon{ width: 38px; height: 38px; color: var(--terracotta-d); }
+  .ai-card .num{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .28em; color: var(--gold); text-transform: uppercase;
+  }
+  .ai-card h4{ font-family: var(--serif); font-size: 26px; font-weight: 600; margin: 0 0 10px; color: var(--ink); }
+  .ai-card p{ font-size: 15.5px; margin: 0; color: var(--ink-soft); line-height: 1.55; }
+  @media (max-width: 800px){
+    .ai-grid{ grid-template-columns: 1fr; }
+    .ai-card{ border-right: none !important; border-bottom: 1px solid var(--rule-soft) !important; }
+    .ai-card:last-child{ border-bottom: none !important; }
+  }
+
+  /* Download */
+  .download{
+    background:
+      radial-gradient(800px 300px at 50% 100%, rgba(212,168,90,.35), transparent 60%),
+      linear-gradient(180deg, #b65a3c 0%, #8a3f28 100%);
+    color: #f3ead8;
+    text-align: center;
+    padding: clamp(80px, 9vw, 130px) 32px;
+    position: relative; overflow: hidden;
+  }
+  .download::before, .download::after{
+    content:""; position: absolute; top: 0; bottom: 0;
+    width: 1px; background: rgba(243,234,216,.2);
+  }
+  .download::before{ left: 32px; }
+  .download::after{ right: 32px; }
+  .download .eyebrow{ color: rgba(243,234,216,.7); }
+  .download h2{ color: #f3ead8; max-width: 760px; margin: 12px auto 18px; }
+  .download p{ color: rgba(243,234,216,.85); max-width: 560px; margin: 0 auto; }
+  .btn{
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 22px 36px;
+    background: #f3ead8; color: #2a2520;
+    font-family: var(--sans); font-weight: 600;
+    font-size: 15px; letter-spacing: .04em;
+    border: none; cursor: pointer;
+    margin-top: 36px; text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    box-shadow: 0 14px 40px -18px rgba(0,0,0,.6);
+  }
+  .btn .ico{ width: 22px; height: 22px; color: var(--tyrian); }
+  .btn:hover{
+    transform: translateY(-3px);
+    background: #fff; color: var(--tyrian);
+    box-shadow: 0 22px 50px -18px rgba(0,0,0,.7);
+  }
+  .download .small{
+    display: block; margin-top: 20px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .25em; text-transform: uppercase;
+    color: rgba(243,234,216,.65);
+  }
+
+  /* Footer */
+  .footer{
+    background: var(--travertine-2);
+    text-align: center;
+    padding: 80px 32px 56px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .footer .arch-divider{ margin: 0 auto 28px; width: 110px; height: 36px; color: var(--gold); }
+  .footer .name-line{
+    font-family: var(--serif); font-size: 22px;
+    font-weight: 600; color: var(--ink); margin-bottom: 6px;
+  }
+  .footer .school{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 24px;
+  }
+  .footer .closing{
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; color: var(--ink-soft);
+    max-width: 560px; margin: 0 auto 28px; line-height: 1.5;
+  }
+  .footer .yr{
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .3em; color: var(--gold);
+  }
+
+  /* Sketches — minimal hand-drawn line illustrations */
+  .sketch{
+    color: var(--gold);
+    opacity: .82;
+    display: block;
+  }
+  .sketch path, .sketch line, .sketch circle, .sketch rect, .sketch polyline, .sketch ellipse{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .sketch.fill path.f, .sketch.fill rect.f, .sketch.fill circle.f, .sketch.fill polygon.f{ fill: currentColor; opacity: .12; }
+  .sketch-cap{
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 6px;
+  }
+  .sketch-block{
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 2px;
+  }
+  .sketch-aside{
+    margin-bottom: 28px;
+  }
+  /* Reveal animations */
+  .reveal{
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+    transition-delay: var(--d, 0ms);
+  }
+  .reveal.in-view{ opacity: 1; transform: translateY(0); }
+
+  /* Print */
+  @media print{
+    .nav, .hero-bottom, .scroll-ind, .download, .video-frame .play, .video-frame::before { display: none !important; }
+    body{ background: white !important; }
+    body::before{ display: none; }
+    .hero{ min-height: auto; background: white !important; color: black; }
+    .hero-grid{ min-height: auto; padding: 24px 0; }
+    .hero-silhouette, .hero-sun{ display: none; }
+    .hero h1, .hero-sub{ color: #2a2520 !important; }
+    .section{ padding: 28px 0; page-break-inside: avoid; }
+    .gallery, .ai-grid, .stats{ page-break-inside: avoid; }
+    .video-section{ background: white !important; color: black !important; }
+    .video-section h2, .video-section p{ color: black !important; }
+    a{ color: black !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="Home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M3 20h18M5 20V11a7 7 0 0 1 14 0v9M9 20v-5a3 3 0 0 1 6 0v5"/>
+        </svg>
+      </span>
+      <span class="name">Aaradhya <em>·</em> Colosseum</span>
+    </a>
+    <div class="nav-links">
+      <a href="#intro">Intro</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#timeline">Renaissance</a>
+      <a href="#model">The Model</a>
+      <a href="#ai">AI Preservation</a>
+      <a href="#download">Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-stamp">
+    <div class="lat">A. D. LXXX</div>
+    <div class="roman">Anno Domini · Roma</div>
+  </div>
+
+  <div class="hero-sun" aria-hidden="true"></div>
+
+  <div class="hero-silhouette" id="heroSilhouette" aria-hidden="true">
+    <svg viewBox="0 0 1500 520" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="silG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5a2f1c"/>
+          <stop offset="100%" stop-color="#3b1f12"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="510" x2="1500" y2="510" stroke="#3b1f12" stroke-width="1" opacity=".4"/>
+      <path d="M 90 510 Q 90 230 250 150 Q 450 60 760 60 Q 1080 60 1280 150 Q 1420 220 1420 510 Z"
+            fill="url(#silG)" opacity=".75"/>
+      <path d="M 1120 200 Q 1180 180 1240 200 L 1260 510 L 1100 510 Z"
+            fill="#2a1a12" opacity=".55"/>
+      <g fill="#2a1a12" opacity=".7">
+        <rect x="180" y="100" width="14" height="40"/>
+        <rect x="240" y="84"  width="14" height="40"/>
+        <rect x="320" y="74"  width="14" height="40"/>
+        <rect x="420" y="66"  width="14" height="40"/>
+        <rect x="560" y="60"  width="14" height="40"/>
+        <rect x="720" y="58"  width="14" height="40"/>
+        <rect x="880" y="62"  width="14" height="40"/>
+        <rect x="1020" y="68" width="14" height="40"/>
+        <rect x="1160" y="80" width="14" height="40"/>
+        <rect x="1240" y="100" width="14" height="40"/>
+      </g>
+      <!-- Arch openings on the body -->
+      <g fill="#2a1a12" opacity=".88">
+        <g id="archesRow1"></g>
+        <g id="archesRow2"></g>
+        <g id="archesRow3"></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" style="color:#7a1f2b; margin-bottom: 22px;">A Heritage Project · MMXXVI</div>
+      <h1>
+        The Colosseum<span class="amp">:</span><br/>
+        <span class="ren">A Renaissance of History</span>
+      </h1>
+      <p class="hero-sub">A Class 8 Heritage Project by Aaradhya Sharma — exploring the architecture, story, and modern preservation of Rome's most enduring monument.</p>
+      <div class="hero-meta">
+        <span>Class 8B</span><span>Bhabha House</span><span>Roll No. 1</span><span>Our Lady of the Snows High School</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-tag">
+      <b>Amphitheatrum Flavium</b><br/>
+      Constructed 70–80 A.D.<br/>
+      Rome, Italy
+    </div>
+    <a href="#intro" class="scroll-ind" aria-label="Scroll to introduction">
+      <span>Scroll</span>
+      <span class="bar"></span>
+    </a>
+    <div class="hero-tag" style="text-align:right;">
+      Nine sections<br/>
+      <b>Begin the journey ↓</b>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO + STATS -->
+<section class="section" id="intro">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">I · Introduction</div>
+        <div class="name">A monument to memory</div>
+      </div>
+      <div>
+        <div class="eyebrow">The story of an amphitheater</div>
+        <h2 style="margin-top:8px;">A stage of stone, eight decades in the making — and two thousand years in the standing.</h2>
+        <div class="divider"><span class="line"></span><svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 11 Q 6 1 11 11 Q 16 1 21 11"/></svg><span class="line"></span></div>
+        <p class="lede drop-cap">The Colosseum was commissioned by Emperor Vespasian in 70 AD and completed by his son Titus in 80 AD. The largest amphitheater ever built, it became the beating heart of Roman public life and later inspired Renaissance thinkers as a symbol of Rome's brilliance.</p>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M6 42h36M10 42V20a14 14 0 0 1 28 0v22M18 42V28a6 6 0 0 1 12 0v14"/>
+          <line x1="10" y1="20" x2="38" y2="20"/>
+        </svg>
+        <div class="num">70<span style="font-weight:300;">–</span>80<small>AD</small></div>
+        <div class="lbl">Years of Construction</div>
+      </div>
+      <div class="stat">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="6" y="20" width="36" height="8"/>
+          <line x1="12" y1="20" x2="12" y2="14"/>
+          <line x1="18" y1="20" x2="18" y2="16"/>
+          <line x1="24" y1="20" x2="24" y2="13"/>
+          <line x1="30" y1="20" x2="30" y2="16"/>
+          <line x1="36" y1="20" x2="36" y2="14"/>
+        </svg>
+        <div class="num">189<span style="opacity:.6;font-weight:300;">×</span>156<small>m</small></div>
+        <div class="lbl">Size of the Amphitheater</div>
+      </div>
+      <div class="stat">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M6 42V22a8 8 0 0 1 16 0v20"/>
+          <path d="M22 42V22a8 8 0 0 1 16 0v20"/>
+          <line x1="6" y1="42" x2="42" y2="42"/>
+          <line x1="6" y1="22" x2="22" y2="22"/>
+          <line x1="22" y1="22" x2="38" y2="22"/>
+        </svg>
+        <div class="num">80</div>
+        <div class="lbl">Arched Entrances</div>
+      </div>
+      <div class="stat">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="14" cy="18" r="4"/><circle cx="24" cy="14" r="4"/><circle cx="34" cy="18" r="4"/>
+          <path d="M6 42c0-6 4-10 8-10s4 4 8 4 4-4 8-4 4 4 8 4 4 0 4 6"/>
+        </svg>
+        <div class="num">50<span style="opacity:.6;">–</span>80<small>k</small></div>
+        <div class="lbl">Spectator Capacity</div>
+      </div>
+      <div class="stat">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M14 4h20v8a10 10 0 0 1-10 10 10 10 0 0 1-10-10V4z"/>
+          <path d="M14 44h20v-8a10 10 0 0 0-10-10 10 10 0 0 0-10 10v8z"/>
+          <line x1="10" y1="4" x2="38" y2="4"/>
+          <line x1="10" y1="44" x2="38" y2="44"/>
+        </svg>
+        <div class="num">2,000<small>yrs</small></div>
+        <div class="lbl">Years of Standing History</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PURPOSE -->
+<section class="section" id="purpose">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">II · Purpose &amp; Function</div>
+        <div class="name">Theatre of the empire</div>
+      </div>
+      <div>
+        <div class="eyebrow">Spectacle &amp; engineering</div>
+        <h2 style="margin-top:8px;">A stage built for fifty thousand voices, beneath a moving sky.</h2>
+        <div class="sketch-aside reveal" style="margin-top: 18px;">
+          <div class="sketch-block">
+            <svg class="sketch" width="110" height="86" viewBox="0 0 110 86" aria-hidden="true">
+              <!-- Gladiator helmet sketch -->
+              <path d="M22 50 Q22 22 55 18 Q88 22 88 50 L88 62 Q88 70 80 70 L30 70 Q22 70 22 62 Z"/>
+              <path d="M22 50 Q55 44 88 50"/>
+              <path d="M30 36 Q55 30 80 36"/>
+              <circle cx="42" cy="54" r="3"/>
+              <circle cx="68" cy="54" r="3"/>
+              <path d="M48 60 L62 60"/>
+              <!-- crest -->
+              <path d="M48 18 Q55 4 62 18"/>
+              <path d="M50 16 L52 8 M55 14 L55 6 M60 16 L58 8"/>
+              <!-- chin strap -->
+              <path d="M30 70 Q34 78 42 80 L68 80 Q76 78 80 70" stroke-dasharray="2 3"/>
+            </svg>
+            <div class="sketch-cap">galea · the gladiator's helm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="reveal">
+        <p class="lede" style="margin-top:0;">The Colosseum was the entertainment heart of the Roman Empire. Within its great oval, gladiators clashed for honour and survival, water flooded the arena floor for staged sea battles, and elaborate dramas re-enacted myths the public knew by heart.</p>
+        <p>To shield the crowds from Rome's relentless sun, sailors of the imperial fleet operated the <em>velarium</em> — an enormous retractable awning of canvas, raised on masts and ropes around the topmost ring. Below the arena, hidden beneath the wooden floor, a labyrinth of cells, lifts, and tunnels — the <em>hypogeum</em> — released animals and performers through trapdoors, creating illusions that astonished every generation of spectators.</p>
+        <p>Each spectacle was free for citizens — paid for by the emperor as a gesture of generosity. Politics, religion, sport, and theatre all converged in one stone arena.</p>
+      </div>
+      <div class="icon-cards reveal" style="--d:120ms;">
+        <div class="icon-card">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M8 40l24-24M14 8l8 8M8 14l8 8M30 28l8 8M28 30l8 8"/>
+            <circle cx="38" cy="10" r="4"/>
+          </svg>
+          <div class="roman-num">i</div>
+          <h4>Gladiator Combat</h4>
+        </div>
+        <div class="icon-card">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M6 32c4 4 8 4 12 0s8-4 12 0 8 4 12 0"/>
+            <path d="M6 38c4 4 8 4 12 0s8-4 12 0 8 4 12 0"/>
+            <path d="M14 28V14l16-4v18"/>
+          </svg>
+          <div class="roman-num">ii</div>
+          <h4>Mock Sea Battles</h4>
+        </div>
+        <div class="icon-card">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M10 36c0-8 6-14 14-14s14 6 14 14"/>
+            <circle cx="24" cy="14" r="4"/>
+            <path d="M16 36l-2 6M32 36l2 6"/>
+          </svg>
+          <div class="roman-num">iii</div>
+          <h4>Wild Animal Hunts</h4>
+        </div>
+        <div class="icon-card">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M24 6L8 18v22h32V18L24 6z"/>
+            <path d="M16 40V26h16v14"/>
+            <path d="M20 26v14M28 26v14"/>
+          </svg>
+          <div class="roman-num">iv</div>
+          <h4>Public Spectacles</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">III · Damage &amp; Renaissance</div>
+        <div class="name">Two millennia of ruin and rebirth</div>
+      </div>
+      <div>
+        <div class="eyebrow">Earthquakes, quarries, and rediscovery</div>
+        <h2 style="margin-top:8px;">It fell. It was forgotten. And then — it was rediscovered.</h2>
+        <div class="sketch-aside reveal" style="margin-top: 18px;">
+          <div class="sketch-block" style="align-items:flex-start;">
+            <svg class="sketch" width="170" height="84" viewBox="0 0 170 84" aria-hidden="true">
+              <!-- Renaissance: drafting compass over an architectural plan of the arches -->
+              <line x1="4" y1="78" x2="166" y2="78"/>
+              <!-- parchment / drawing board -->
+              <rect x="10" y="42" width="120" height="32"/>
+              <line x1="10" y1="50" x2="130" y2="50" stroke-dasharray="1 3"/>
+              <!-- arches drawn on plan -->
+              <path d="M22 70 L22 60 Q22 54 28 54 Q34 54 34 60 L34 70"/>
+              <path d="M40 70 L40 60 Q40 54 46 54 Q52 54 52 60 L52 70"/>
+              <path d="M58 70 L58 60 Q58 54 64 54 Q70 54 70 60 L70 70"/>
+              <path d="M76 70 L76 60 Q76 54 82 54 Q88 54 88 60 L88 70"/>
+              <path d="M94 70 L94 60 Q94 54 100 54 Q106 54 106 60 L106 70"/>
+              <!-- dimension line -->
+              <line x1="22" y1="46" x2="106" y2="46"/>
+              <line x1="22" y1="44" x2="22" y2="48"/>
+              <line x1="106" y1="44" x2="106" y2="48"/>
+              <!-- compass / divider -->
+              <circle cx="118" cy="14" r="3"/>
+              <line x1="118" y1="17" x2="104" y2="48"/>
+              <line x1="118" y1="17" x2="132" y2="48"/>
+              <line x1="118" y1="17" x2="118" y2="14"/>
+              <!-- arc swept by compass -->
+              <path d="M104 48 Q118 38 132 48" stroke-dasharray="1 2"/>
+              <!-- quill -->
+              <path d="M148 16 L138 60 L142 62 L154 22 Z"/>
+              <line x1="142" y1="60" x2="138" y2="72"/>
+              <path d="M138 72 L136 76 L140 74 Z"/>
+              <!-- tiny inkwell -->
+              <ellipse cx="156" cy="74" rx="6" ry="2"/>
+              <path d="M150 74 L150 70 Q156 68 162 70 L162 74"/>
+            </svg>
+            <div class="sketch-cap" style="text-align:left;">redrawn by Renaissance hands · compass, quill, parchment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="timeline reveal" style="padding:0; margin:0;">
+      <li class="tl-item">
+        <span class="dot"></span>
+        <div class="yr">847 AD</div>
+        <h4>First Major Earthquake</h4>
+        <p>A powerful tremor shook the southern face, dislodging stone and weakening centuries-old vaults.</p>
+      </li>
+      <li class="tl-item" style="--d:100ms;">
+        <span class="dot"></span>
+        <div class="yr">1231 AD</div>
+        <h4>Second Devastating Quake</h4>
+        <p>The outer ring collapsed on its southern side, leaving the iconic two-tiered profile we recognise today.</p>
+      </li>
+      <li class="tl-item" style="--d:200ms;">
+        <span class="dot"></span>
+        <div class="yr">Middle Ages</div>
+        <h4>Stone for New Cities</h4>
+        <p>Travertine and marble were quarried away to build palaces, churches, and the early walls of St. Peter's.</p>
+      </li>
+      <li class="tl-item" style="--d:300ms;">
+        <span class="dot"></span>
+        <div class="yr">Renaissance</div>
+        <h4>Rediscovered as a Treasure</h4>
+        <p>Artists, popes, and scholars saw in its ruins the genius of antiquity. Preservation began, and study followed.</p>
+      </li>
+    </ol>
+
+    <div class="tl-coda reveal" style="--d:120ms;">
+      Despite earthquakes, looting, and the long forgetting of the Middle Ages, the Colosseum endured. Its survival into the Renaissance — when poets, painters, and architects turned its ruins into a teacher — is why we can still walk through its arches today.
+    </div>
+  </div>
+</section>
+
+<!-- MY MODEL -->
+<section class="section model-section" id="model">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">IV · The Project</div>
+        <div class="name">Made by hand · MMXXVI</div>
+      </div>
+      <div>
+        <div class="sketch-aside reveal" style="margin-bottom: 14px;">
+          <div class="sketch-block" style="align-items:flex-start;">
+            <svg class="sketch" width="180" height="78" viewBox="0 0 180 78" aria-hidden="true">
+              <!-- Cross-section schematic of the amphitheatre -->
+              <line x1="4" y1="70" x2="176" y2="70"/>
+              <!-- outer oval -->
+              <ellipse cx="90" cy="70" rx="82" ry="34"/>
+              <!-- middle ring -->
+              <ellipse cx="90" cy="70" rx="60" ry="24"/>
+              <!-- inner arena -->
+              <ellipse cx="90" cy="70" rx="34" ry="12"/>
+              <!-- ribs (radial) -->
+              <line x1="90" y1="36" x2="90" y2="58"/>
+              <line x1="50" y1="42" x2="60" y2="58"/>
+              <line x1="130" y1="42" x2="120" y2="58"/>
+              <line x1="22" y1="58" x2="32" y2="66"/>
+              <line x1="158" y1="58" x2="148" y2="66"/>
+              <!-- north arrow -->
+              <line x1="90" y1="30" x2="90" y2="14"/>
+              <path d="M86 18 L90 14 L94 18"/>
+              <text x="90" y="10" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" letter-spacing="1" fill="currentColor" stroke="none">N</text>
+              <!-- scale ticks -->
+              <line x1="8" y1="74" x2="40" y2="74"/>
+              <line x1="8" y1="72" x2="8" y2="76"/>
+              <line x1="40" y1="72" x2="40" y2="76"/>
+              <text x="24" y="77" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5" letter-spacing="1" fill="currentColor" stroke="none">189 m</text>
+            </svg>
+            <div class="sketch-cap" style="text-align:left;">plan · the great oval, three rings deep</div>
+          </div>
+        </div>
+        <div class="eyebrow">My 3D Replica</div>
+        <h2 style="margin-top:8px; font-style: italic;">I Built the Colosseum — <span style="color:var(--tyrian); font-style:italic;">Here's How.</span></h2>
+        <div class="divider"><span class="line"></span><svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 11 Q 6 1 11 11 Q 16 1 21 11"/></svg><span class="line"></span></div>
+        <p class="lede">I built a 3D replica of the Colosseum from scratch using everyday materials. Every arch, every layer, was crafted by hand — a tribute to the Roman builders who shaped this monument nearly two thousand years ago.</p>
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div style="margin-bottom: 24px;" class="reveal">
+      <div style="display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <h3 style="margin:0;">Materials Used</h3>
+        <div class="eyebrow">Nine humble parts · One ancient wonder</div>
+      </div>
+    </div>
+    <div class="materials reveal">
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="6" y="14" width="36" height="24"/>
+          <path d="M6 22h36M6 30h36M14 14v24M24 14v24M34 14v24"/>
+        </svg>
+        <div><div class="label">Cardboard</div><div class="meta">From an old laptop box</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <ellipse cx="24" cy="36" rx="18" ry="4"/>
+          <path d="M6 36V20h36v16M12 20v-4M24 20v-6M36 20v-4"/>
+        </svg>
+        <div><div class="label">Cake Base</div><div class="meta">For the arena floor</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <line x1="12" y1="6" x2="12" y2="42"/>
+          <line x1="20" y1="6" x2="20" y2="42"/>
+          <line x1="28" y1="6" x2="28" y2="42"/>
+          <line x1="36" y1="6" x2="36" y2="42"/>
+          <path d="M10 16h4M18 22h4M26 18h4M34 14h4"/>
+        </svg>
+        <div><div class="label">Bamboo Sticks</div><div class="meta">Wall seating around the base</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="10" y="6" width="28" height="36"/>
+          <path d="M16 14h16M16 22h16M16 30h10"/>
+        </svg>
+        <div><div class="label">Yellow Chart Paper</div><div class="meta">The arena interior</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 38l24-24"/>
+          <ellipse cx="32" cy="14" rx="5" ry="6" transform="rotate(45 32 14)"/>
+          <path d="M6 40l4 2 2-4"/>
+        </svg>
+        <div><div class="label">Ice-Cream Sticks</div><div class="meta">Supporting the interior</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 30c4-4 8-4 12 0s8 4 12 0 8-4 12 0"/>
+          <path d="M8 38c4-4 8-4 12 0s8 4 12 0 8-4 12 0"/>
+          <path d="M16 18l-4 8h8z"/>
+          <path d="M30 14l-4 8h8z"/>
+        </svg>
+        <div><div class="label">Ribbons</div><div class="meta">Outer arches &amp; trim</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="10" y="6" width="14" height="22" rx="2"/>
+          <path d="M14 28v6h6v-6"/>
+          <path d="M17 34v8"/>
+          <path d="M28 18l8-2 4 4-8 2zM30 22l8 4"/>
+        </svg>
+        <div><div class="label">Paint</div><div class="meta">To colour the walls</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M14 8h20v10l-4 6v18H18V24l-4-6z"/>
+          <path d="M22 32h4"/>
+        </svg>
+        <div><div class="label">Fevicol</div><div class="meta">White-glue bonding</div></div>
+      </div>
+      <div class="material">
+        <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 16h22l4 6h6v8h-6l-4 6H8z"/>
+          <path d="M14 22v8M8 30v8h6"/>
+        </svg>
+        <div><div class="label">Glue Gun &amp; Nails</div><div class="meta">Heavy joins &amp; structure</div></div>
+      </div>
+    </div>
+
+    <!-- Build process -->
+    <div class="reveal" style="display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom: 32px; flex-wrap:wrap;">
+      <h3 style="margin:0;">The Building Process</h3>
+      <div class="eyebrow">Four steps · Many evenings</div>
+    </div>
+
+    <div class="gallery reveal">
+      <article class="gcard">
+        <div class="photo">
+          <span class="step-num">I</span>
+          <img src="images/SettingTheCardboardBase.jpg" alt="Aaradhya carefully gluing the cardboard outer ring of her Colosseum model onto the yellow base." />
+        </div>
+        <div class="body">
+          <div class="step">Step One</div>
+          <h4>Setting the Cardboard Base</h4>
+          <p>Cutting the oval foundation from the laptop-box cardboard, then raising the first ring of arches with the glue gun — the moment the shape of the Colosseum first appears.</p>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="photo">
+          <span class="step-num">II</span>
+          <img src="images/ApplyingGlueGun.jpg" alt="Close-up of the cardboard model showing arches, with hands applying hot glue to secure each tier." />
+        </div>
+        <div class="body">
+          <div class="step">Step Two</div>
+          <h4>Applying the Glue Gun</h4>
+          <p>Each arch is tacked into place — three rising tiers of openings, just as the Romans built them — with hot glue holding the corrugated walls firm.</p>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="photo">
+          <span class="step-num">III</span>
+          <img src="images/ApplyingRibbons.jpg" alt="Aaradhya applying decorative silver ribbons along the horizontal bands of the painted Colosseum model." />
+        </div>
+        <div class="body">
+          <div class="step">Step Three</div>
+          <h4>Applying the Ribbons</h4>
+          <p>After painting the walls in stone-brown, ribbons are pressed along each horizontal band, picking out the cornice lines that crown the Roman façade.</p>
+        </div>
+      </article>
+
+      <article class="gcard">
+        <div class="photo">
+          <span class="step-num">IV</span>
+          <img src="images/SheHoldingTheFinalModel.jpg" alt="Aaradhya holding the completed Colosseum model — three full tiers of arches, painted and trimmed, ready to be presented." />
+        </div>
+        <div class="body">
+          <div class="step">Step Four</div>
+          <h4>The Final Model</h4>
+          <p>Three tiers of arches, a yellow arena floor, a sweep of ribbon trim — and a piece of ancient Rome, rebuilt by hand for school.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="section" id="ai">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">V · Heritage &amp; Technology</div>
+        <div class="name">Old stones, new tools</div>
+      </div>
+      <div>
+        <div class="sketch-aside reveal" style="margin-bottom: 14px;">
+          <div class="sketch-block" style="align-items:flex-start;">
+            <svg class="sketch" width="170" height="74" viewBox="0 0 170 74" aria-hidden="true">
+              <!-- Laser scan / drone over an arch -->
+              <line x1="4" y1="68" x2="166" y2="68"/>
+              <!-- arch on ground -->
+              <path d="M40 68 L40 46 Q40 32 56 32 Q72 32 72 46 L72 68 Z"/>
+              <line x1="34" y1="68" x2="78" y2="68"/>
+              <!-- second arch -->
+              <path d="M86 68 L86 50 Q86 38 100 38 Q114 38 114 50 L114 68 Z"/>
+              <!-- drone -->
+              <line x1="96" y1="14" x2="132" y2="14"/>
+              <rect x="108" y="12" width="12" height="5"/>
+              <line x1="96" y1="12" x2="96" y2="16"/>
+              <line x1="132" y1="12" x2="132" y2="16"/>
+              <line x1="100" y1="14" x2="104" y2="14" stroke-dasharray="1 2"/>
+              <line x1="124" y1="14" x2="128" y2="14" stroke-dasharray="1 2"/>
+              <!-- scan beams -->
+              <line x1="114" y1="18" x2="56" y2="40" stroke-dasharray="1 2"/>
+              <line x1="114" y1="18" x2="100" y2="42" stroke-dasharray="1 2"/>
+              <line x1="114" y1="18" x2="140" y2="60" stroke-dasharray="1 2"/>
+              <!-- point cloud dots -->
+              <circle cx="50" cy="42" r="0.8"/>
+              <circle cx="60" cy="38" r="0.8"/>
+              <circle cx="66" cy="44" r="0.8"/>
+              <circle cx="96" cy="44" r="0.8"/>
+              <circle cx="104" cy="40" r="0.8"/>
+              <circle cx="110" cy="46" r="0.8"/>
+              <circle cx="144" cy="56" r="0.8"/>
+              <circle cx="150" cy="60" r="0.8"/>
+              <!-- second column of arches (faint) -->
+              <path d="M126 68 L126 54 Q126 44 138 44 Q150 44 150 54 L150 68 Z" stroke-dasharray="1 2"/>
+            </svg>
+            <div class="sketch-cap" style="text-align:left;">laser scan · stone read in points of light</div>
+          </div>
+        </div>
+        <div class="eyebrow">Preservation through AI</div>
+        <h2 style="margin-top:8px;">How AI is Protecting This UNESCO World Heritage Site.</h2>
+        <div class="divider"><span class="line"></span><svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 11 Q 6 1 11 11 Q 16 1 21 11"/></svg><span class="line"></span></div>
+        <p class="lede">Two thousand years of weather, war, and footfall have left their mark on the Colosseum. Today, artificial intelligence works quietly beside conservators — measuring, watching, predicting — so that the next two thousand years are kinder than the last.</p>
+      </div>
+    </div>
+
+    <div class="ai-grid reveal">
+      <div class="ai-card">
+        <div class="top">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M24 4l18 10v20L24 44 6 34V14z"/>
+            <path d="M6 14l18 10 18-10M24 24v20"/>
+          </svg>
+          <span class="num">i.</span>
+        </div>
+        <h4>3D Digital Twins</h4>
+        <p>Laser scanning and AI photogrammetry create exact digital replicas of the monument, letting conservators track every tiny structural change down to the millimetre.</p>
+      </div>
+      <div class="ai-card">
+        <div class="top">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="20" cy="20" r="12"/>
+            <path d="M30 30l12 12"/>
+            <path d="M14 20l4 4 8-8"/>
+          </svg>
+          <span class="num">ii.</span>
+        </div>
+        <h4>Crack &amp; Erosion Detection</h4>
+        <p>Machine-learning models scan thousands of images of the stone surface to spot cracks and damage long before the human eye can — a quiet early-warning system.</p>
+      </div>
+      <div class="ai-card">
+        <div class="top">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="6" y="14" width="36" height="22" rx="3"/>
+            <path d="M14 14V8M34 14V8M6 22h36"/>
+            <circle cx="18" cy="28" r="2"/>
+            <circle cx="30" cy="28" r="2"/>
+          </svg>
+          <span class="num">iii.</span>
+        </div>
+        <h4>Virtual Reconstruction</h4>
+        <p>AI rebuilds the Colosseum as it once stood — every column, every awning — letting visitors step into ancient Rome through immersive virtual reality experiences.</p>
+      </div>
+      <div class="ai-card">
+        <div class="top">
+          <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M6 36l8-12 8 6 8-14 8 10 4-4"/>
+            <path d="M6 6v36h36"/>
+          </svg>
+          <span class="num">iv.</span>
+        </div>
+        <h4>Predictive Conservation</h4>
+        <p>Algorithms forecast how weather, pollution, and tourist footfall will affect the structure — guiding smarter, gentler restoration choices for years to come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section video-section" id="video">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">
+        <div class="num">VI · Explainer</div>
+        <div class="name">In her own words</div>
+      </div>
+      <div>
+        <div class="eyebrow">Video walkthrough</div>
+        <h2 style="margin-top:8px;">Watch Aaradhya Explain Her Model.</h2>
+        <div class="divider"><span class="line"></span><svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 11 Q 6 1 11 11 Q 16 1 21 11"/></svg><span class="line"></span></div>
+      </div>
+    </div>
+
+    <a class="video-frame reveal" id="videoFrame" href="https://youtube.com/shorts/Kk2i0fAohLg" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+      <img class="video-thumb" src="images/video-poster.jpg" alt="Aaradhya's finished cardboard Colosseum model — three tiers of arches with silver ribbon trim." />
+      <div class="video-frame-overlay" aria-hidden="true"></div>
+      <div class="play" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor">
+          <path d="M12 8l18 10-18 10z"/>
+        </svg>
+      </div>
+      <div class="duration">WATCH ON YOUTUBE ↗</div>
+    </a>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download" id="download">
+  <div class="eyebrow">VII · Resources</div>
+  <h2>Take the full project with you.</h2>
+  <p>All research, visuals, and the full project deck — gathered into one file.</p>
+  <a class="btn" href="presentation.pptx" download>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M12 4v12m0 0l-5-5m5 5l5-5"/>
+      <path d="M4 20h16"/>
+    </svg>
+    Download the Full Presentation (PPT)
+  </a>
+  <span class="small">presentation.pptx · ~Class 8 Heritage Project · 2026</span>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="end">
+  <svg class="arch-divider" viewBox="0 0 110 36" fill="none" stroke="currentColor" stroke-width="1.2">
+    <path d="M1 35h108"/>
+    <path d="M20 35V18a8 8 0 0 1 16 0v17"/>
+    <path d="M47 35V14a8 8 0 0 1 16 0v21"/>
+    <path d="M74 35V18a8 8 0 0 1 16 0v17"/>
+    <circle cx="55" cy="6" r="2.5"/>
+  </svg>
+  <div class="name-line">Aaradhya Sharma · Class 8B · Bhabha House · Roll No. 1</div>
+  <div class="school">Our Lady of the Snows High School</div>
+  <p class="closing">From the arches of ancient Rome to a model on my desk — history truly lives on.</p>
+  <div class="yr">MMXXVI · 2026</div>
+</footer>
+
+<script>
+  // Sticky nav state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+
+    // Hero parallax
+    const sil = document.getElementById('heroSilhouette');
+    if (sil && window.scrollY < 1200) {
+      const y = Math.min(window.scrollY * 0.18, 220);
+      sil.style.transform = `translate(-50%, calc(-42% + ${y}px))`;
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .tl-item').forEach(el => io.observe(el));
+
+  // Generate arches on the hero silhouette (decorative)
+  (function () {
+    const rows = [
+      { id: 'archesRow1', y: 360, h: 70, w: 28, count: 22, gap: 10, x0: 130 },
+      { id: 'archesRow2', y: 270, h: 60, w: 24, count: 22, gap: 12, x0: 150 },
+      { id: 'archesRow3', y: 195, h: 48, w: 20, count: 22, gap: 14, x0: 170 }
+    ];
+    rows.forEach(r => {
+      const g = document.getElementById(r.id);
+      if (!g) return;
+      const totalW = r.count * r.w + (r.count - 1) * r.gap;
+      const startX = (1500 - totalW) / 2;
+      let s = '';
+      for (let i = 0; i < r.count; i++) {
+        const x = startX + i * (r.w + r.gap);
+        // arch shape: rect with semicircle top
+        s += `<path d="M ${x} ${r.y + r.h} L ${x} ${r.y + r.w/2} A ${r.w/2} ${r.w/2} 0 0 1 ${x + r.w} ${r.y + r.w/2} L ${x + r.w} ${r.y + r.h} Z"/>`;
+      }
+      g.innerHTML = s;
+    });
+  })();
+</script>
+</body>
+</html>
